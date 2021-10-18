@@ -1,10 +1,10 @@
 import http from "http";
 import products from "./data/products.js";
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/html");
-  res.write("<h1>Hello World!</h1>");
-  res.end();
+  //   res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  //   res.write("<h1>Hello World!</h1>");
+  res.end(JSON.stringify(products));
 });
 
 const PORT = process.env.PORT || 5000;
