@@ -1,0 +1,24 @@
+{
+  "name": "vanella-node-rest-api",
+  "version": "1.0.0",
+  "description": "Rest Api with Vanella nodejs",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eswarmaganti/vanella-node-rest-api.git"
+  },
+  "author": "Eswar Maganti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eswarmaganti/vanella-node-rest-api/issues"
+  },
+  "homepage": "https://github.com/eswarmaganti/vanella-node-rest-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
