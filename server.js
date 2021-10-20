@@ -1,9 +1,8 @@
 import http from "http";
-import products from "./data/products.js";
+import { getProducts } from "./controllers/productController.js";
 const server = http.createServer((req, res) => {
   if (req.url === "/api/products" && req.method === "GET") {
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(products));
+    getProducts(req, res);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Route Not Found" }));
