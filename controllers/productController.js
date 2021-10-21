@@ -1,4 +1,5 @@
-import { findAll, findByID } from "../models/productModel.js";
+import { findAll, findByID, create } from "../models/productModel.js";
+import { getPostData } from "../utils.js";
 
 // @desc    Get All Products
 // @route   GET /api/products
@@ -23,6 +24,26 @@ export const getProduct = async (req, res, id) => {
     } else {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(product));
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// @desc    Get All Products
+// @route   GET /api/products
+export const createProduct = async (req, res) => {
+  try {
+    const body = await getPostData(req);
+    const { title, description, price } = JSON.parse(body);
+    const product = { title, description, price };
+    const newProduct = await create(product);
+    if (newProduct) {
+      res.writeHead(201, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(newProduct));
+    } else {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Unable to create Product" }));
     }
   } catch (error) {
     console.log(error);
